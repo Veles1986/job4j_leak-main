@@ -9,12 +9,12 @@ import java.util.Random;
 
 public class UserGenerator implements Generate {
 
-    public final String path_names = "files/names.txt";
-    public final String path_surnames = "files/surnames.txt";
-    public final String path_patrons = "files/patr.txt";
+    public final String pathNames = "files/names.txt";
+    public final String pathSurnames = "files/surnames.txt";
+    public final String pathPatrons = "files/patr.txt";
 
     public final String separator = " ";
-    public final Integer new_users = 1000;
+    public final Integer newUsers = 1000;
 
     public List<String> names;
     public List<String> surnames;
@@ -30,7 +30,7 @@ public class UserGenerator implements Generate {
     @Override
     public void generate() {
         users.clear();
-        for (int i = 0; i < new_users; i++) {
+        for (int i = 0; i < newUsers; i++) {
             var name = surnames.get(random.nextInt(surnames.size())) + separator
                     + names.get(random.nextInt(names.size())) + separator
                     + patrons.get(random.nextInt(patrons.size()));
@@ -42,9 +42,9 @@ public class UserGenerator implements Generate {
 
     private void readAll() {
         try {
-            names = read(path_names);
-            surnames = read(path_surnames);
-            patrons = read(path_patrons);
+            names = read(pathNames);
+            surnames = read(pathSurnames);
+            patrons = read(pathPatrons);
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
